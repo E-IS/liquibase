@@ -24,4 +24,9 @@ public class GetViewDefinitionStatement extends AbstractSqlStatement {
     public String getViewName() {
         return viewName;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s.%s.%s", catalogName, schemaName, viewName);
+    }
 }

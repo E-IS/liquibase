@@ -23,8 +23,10 @@ public class GetViewDefinitionGeneratorPostgres extends GetViewDefinitionGenerat
     public Sql[] generateSql(GetViewDefinitionStatement statement, Database database, SqlGeneratorChain sqlGeneratorChain) {
         CatalogAndSchema schema = new CatalogAndSchema(statement.getCatalogName(), statement.getSchemaName()).customize(database);
 
-        return new Sql[] {
-                    new UnparsedSql("select definition from pg_views where viewname='" + statement.getViewName() + "' AND schemaname='" + schema.getSchemaName() + "'" )
-            };
+        return new Sql[]{
+                new UnparsedSql(
+                        "select definition from pg_views where viewname='" + statement.getViewName() + "'" +
+                                " AND (schemaname='" + schema.getSchemaName() + "' OR schemaname='" + database.getSystemSchema() + "' OR schemaname='public')")
+        };
     }
 }
