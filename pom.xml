@@ -4,7 +4,7 @@
 
     <groupId>org.liquibase</groupId>
     <artifactId>liquibase-parent</artifactId>
-    <version>3.7.1-pg11-SNAPSHOT</version>
+    <version>3.7.1-pg11</version>
     <packaging>pom</packaging>
 
     <name>Liquibase Parent Configuration</name>
@@ -650,6 +650,20 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+
+        <profile>
+            <id>eis-deploy</id>
+            <distributionManagement>
+                <repository>
+                    <id>eis-nexus-deploy</id>
+                    <url>http://nexus.e-is.pro/nexus/content/repositories/quadrige3-core-releases</url>
+                </repository>
+                <snapshotRepository>
+                    <id>eis-nexus-deploy</id>
+                    <url>http://nexus.e-is.pro/nexus/content/repositories/quadrige3-core-snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
         </profile>
     </profiles>
 </project>

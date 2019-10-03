@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.liquibase</groupId>
 		<artifactId>liquibase-parent</artifactId>
-		<version>3.7.1-pg11-SNAPSHOT</version>
+		<version>3.7.1-pg11</version>
 	</parent>
 
 	<artifactId>liquibase-rpm</artifactId>
